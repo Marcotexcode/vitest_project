@@ -1,10 +1,10 @@
 <template>
     <div>
-        <button v-on:click="isHidden = !isHidden">Toggle hide and show</button>
+        <button v-on:click="isHidden = !isHidden">Clicca per mostrare il testo</button>
 
-        <h1 v-if="!isHidden">Hide me on click event!</h1>
+        <h1 v-if="!isHidden">HELLO WORD</h1>
     </div>
-  </template>
+</template>
 
 <script>
     export default {

@@ -1,23 +1,37 @@
 //components/__test__/AgeGuess.test.js
-import { test, expect } from "vitest";
+import { describe, test, expect } from "vitest";
 
-//import mount
+//import mount. 
 import { mount } from "@vue/test-utils";
 
-import App from "../App.vue";
+// Import the App component. 
+import App from "../App.vue"; 
 
-// Testo le funzioni del componente App.
+// Testing the app component.
 describe("App", () => {
 
-    // Testo la funziona che mostra e nasconde il testo.
-    test("Mostra/nascondi testo", async () => {
+    // Testing the function that on click, shows or hides text.
+    test("Mostra o nascondi testo", async () => {
 
+        // I check the App component for general errors. 
         expect(App).toBeTruthy();
 
-        const wrapper = mount(App, {
+        // Mount the component and render it. 
+        const wrapper = mount(App);
 
-        });
-        // expect(wrapper.text()).toContain("Guess User Age App");
+        console.log(wrapper.element('button'));
+        
+        // When the button is clicked, the message is shown.
+        await wrapper.get('button').trigger('click');
+        
+        // I check that the text is shown. 
+        expect(wrapper.find('h1').exists()).toBe(true);
+        
+        // When the button is clicked, the message is hidden.
+        await wrapper.get('button').trigger('click');
+
+        // I check that the text is not shown. 
+        expect(wrapper.find('h1').exists()).toBe(false);
     });
 
 });
